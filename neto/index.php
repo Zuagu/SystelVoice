@@ -5,7 +5,7 @@ include("funciones_bd.php");
   <table width="660" border="1">
   <tr>
       <td colspan="2"><div align="center">AUDIO ELASTIX DIALER 0.1 <br />
-        Generador de Campa&ntilde;as / Destino : Audio <br />
+        Generador de Campa&ntilde;as / Destino : Audio<br />
       </div></td>
     </tr>
   <tr>
