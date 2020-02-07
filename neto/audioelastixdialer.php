@@ -24,7 +24,7 @@ include("funciones_bd.php");
 //////////////////////////////////////////////////////////////////
 //1.- PROCESO PARA SUBIR CVS AL SERVIDOR
 //Defino carpeta para uploads
-$dir = './'; // 
+$dir = './'; //
 move_uploaded_file($_FILES['archivocvs']['tmp_name'], $dir.$_FILES['archivocvs']['name'] );
 
 //Nombre del archivo cvs subido
@@ -42,7 +42,7 @@ while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
     $num = count($data);
     $row++;
     //$cadena = "insert into calloutnumeros(numero,nombre) values(";
-    $cadena = "insert into calloutnumeros(campana,telefono,nombre) values(";	
+    $cadena = "insert into calloutnumeros(campana,telefono,nombre) values(";
     for ($c=0; $c < $num; $c++) {
         if ($c==($num-1))
               $cadena = $cadena."'".$data[$c] . "'";
@@ -76,16 +76,16 @@ $troncal= $_POST['troncal'];
 
 if ($troncal=="2") {
     $tronc1="SIP/0051";
-	$tronc2="@SERVILINE";  
+	$tronc2="@SERVILINE";
 } else {
     $tronc1="ZAP/g1/";
-    $tronc2=",20,Tt";  
-} 
+    $tronc2=",20,Tt";
+}
 
 
 
 /////////////////////////////////////////
-//4.- INSERTAR DATOS DE CAMPAÑA EN LA BASE DE DATOS
+//4.- INSERTAR DATOS DE CAMPAï¿½A EN LA BASE DE DATOS
 
 $idcampana=$_POST['idcampana'];
 $nombrecampana=$_POST['campana'];
@@ -103,6 +103,13 @@ insert_db($sentencia_ins_dc1);
 // //5.- GENERAR LA LLAMADA DE LA BASE DE DATOS
 // $sentencia="select id,telefono from calloutnumeros where campana = $idcampana;";
 // $resultado=consultar_bd($sentencia);
+// $resultado->fetchAll(PDO::FETCH_OBJ);
+//
+// foreach ($resultado as $row) {
+//     // code...
+//     $row->id
+// }
+//
 // while ($row=mysql_fetch_array($resultado)){
 //    $id=$row[0];
 //    $numero=$row[1];
@@ -111,9 +118,9 @@ insert_db($sentencia_ins_dc1);
 //    $fp = fopen("/var/spool/asterisk/outgoing/myarchivo$id.call","a");
 //    fwrite($fp, $Channel . PHP_EOL . $Callerid . PHP_EOL . $MaxRetries . PHP_EOL . $RetryTime . PHP_EOL . $WaitTime . PHP_EOL . $Context . PHP_EOL . $Extension . PHP_EOL . $Priority . PHP_EOL);
 //    fclose($fp);
-   
+//
 // } //CIERRE DE WHILE
-// mysql_free_result($resultado); 
+// mysql_free_result($resultado);
 // die;
 
 
