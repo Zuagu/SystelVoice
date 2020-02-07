@@ -7,6 +7,8 @@ function conectar_bd() {
     } catch (Exception $e) {
         die('Error' . $e->getMessage());
         echo "Linea del error" . $e->getLine();
+
+        
     }
     return $base;
 }
